@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-export const headerHeight = "30px";
+import { headerHeight } from "../../utils/size";
 
 const Header: React.FC = props => {
   return <HeaderBox>header</HeaderBox>;

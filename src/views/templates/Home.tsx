@@ -3,17 +3,13 @@ import * as H from "history";
 import styled from "styled-components";
 
 import { useDispatch, useSelector } from "react-redux";
-import { sampleSelector } from "../selectors/sampleSelector";
-import sampleModule from "../modules/sampleModule";
+import { sampleSelector } from "../../redux/selectors/sampleSelector";
+import sampleModule from "../../redux/modules/sampleModule";
 
-import SampleButton from "../components/Home/SampleButton";
-import SampleInput from "../components/Home/SampleInput";
+import SampleButton from "../atoms/SampleButton";
+import SampleInput from "../atoms/SampleInput";
 
-type Props = {
-  history: H.History;
-};
-
-const Home: React.FC<Props> = props => {
+const Home: React.FC = props => {
   // dispatch, state を用意
   const dispatch = useDispatch();
   const sampleState = useSelector(sampleSelector);

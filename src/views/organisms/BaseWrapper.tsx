@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
-import Header, { headerHeight } from "./Header";
+import { headerHeight } from "../../utils/size";
+import Header from "../molecules/Header";
 
 const BaseWrapper: React.FC = ({ children }) => {
   return (

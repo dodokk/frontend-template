@@ -1,9 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-
-// 型定義
-export interface Sample {
-  some_member: string;
-}
+import { Sample } from "../../utils/types";
 
 // state
 export interface SampleState {
@@ -24,10 +20,10 @@ const modules = createSlice({
   name: "sample",
   initialState: initialState,
   reducers: {
-    changeNum: (state, action: PayloadAction<number>) => {
+    changeNum: (state, action: PayloadAction<SampleState["someNum"]>) => {
       state.someNum = action.payload;
     },
-    changeStr: (state, action: PayloadAction<string>) => {
+    changeStr: (state, action: PayloadAction<SampleState["someStr"]>) => {
       state.someStr = action.payload;
     },
     addList: (state, action: PayloadAction<Sample>) => {
