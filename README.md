@@ -1,4 +1,4 @@
-# frontend-template
+# frontend-templateドキュメント
 
 ### 使用しているフレームワーク・ライブラリ
 
@@ -18,7 +18,7 @@
 
 - アトミックデザイン
 
-### ディレクトリ構造と定義付け
+### ディレクトリ構造
 
 ```
 .
@@ -58,37 +58,47 @@
 └── yarn.lock
 ```
 
+
 ## 使い方
 
-1. cloneする
-    ```bash
-    git clone https://github.com/dodokk/frontend-template
-    ```
+- 新しいプロジェクトの始め方
+
+    1. cloneする
+        ```bash
+        git clone https://github.com/dodokk/frontend-template
+        ```
+
+    1. ディレクトリ名を新しいプロジェクト名に変更する
+        ```bash
+        mv frontend-template {プロジェクト名}
+        ```
+
+    1. ディレクトリ内に移動し、gitの情報を新しくする
+        ```bash
+        cd {プロジェクト名}
+        rm -rf .git
+        git init
+        git remote add origin {新しいプロジェクトのリポジトリURL}
+        ```
+
+    1. パッケージをインストールし、念のため最新にする
+        ```bash
+        yarn
+        yarn upgrade
+        ```
+
+    1. プロジェクト情報を書き換える
+
+        - `public/`内の`favicon.ico`,`logo192.png`,`logo512.png`
+        - `public/index.html`のdescliptionとtitle
+        - `package.json`のname,version,private
+
+    1. 独立したプロジェクトとして開発する
+
+- reduxの追加の仕方
+
+    1. `redux/modules/`
     
-1. ディレクトリ名を新しいプロジェクト名に変更する
-    ```bash
-    mv frontend-template {プロジェクト名}
-    ```
-
-1. ディレクトリ内に移動し、gitの情報を新しくする
-    ```bash
-    cd {プロジェクト名}
-    rm -rf .git
-    git init
-    git remote add origin {新しいプロジェクトのリポジトリURL}
-    ```
-
-1. パッケージをインストールし、念のため最新にする
-    ```bash
-    yarn
-    yarn upgrade
-    ```
-
-1. プロジェクト情報を書き換える
-
-    - `public/`内の`favicon.ico`,`logo192.png`,`logo512.png`
-    - `public/index.html`のdescliptionとtitle
-    - `package.json`のname,version,private
-
-1. 独立したプロジェクトとして開発する
-
+    1. `redux/selectors/`
+    
+    1. `redux/store.ts`のrootReducerに作ったreducerを追加する
