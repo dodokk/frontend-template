@@ -61,7 +61,7 @@
 
 ## 使い方
 
-- 新しいプロジェクトの始め方
+- 新しいプロジェクトを開発するとき
 
     1. cloneする
         ```bash
@@ -94,11 +94,29 @@
         - `package.json`のname,version,private
 
     1. 独立したプロジェクトとして開発する
-
-- reduxの追加の仕方
-
-    1. `redux/modules/`
     
-    1. `redux/selectors/`
+    1. コピペに使ったsampleファイルを消す
+
+- reduxを追加するとき
+
+    1. `redux/modules/〇〇Module.ts`を作成する（`sampleModule.ts`を参考）
+    
+    1. `redux/selectors/〇〇Selector.ts`を作成する(`sampleSelector.ts`を参考)
     
     1. `redux/store.ts`のrootReducerに作ったreducerを追加する
+
+- ページを追加するとき
+
+    1. モックアップをatoms,molecules,organisms,templatesに分解する
+    
+    1. `.tsx`ファイルをatomsから順に開発する
+    
+    1. あまりにファイルが多い時はディレクトリでまとめて`index.ts`でexportする
+    
+    1. `views/Pages.tsx`にルーティングを追加する
+
+- APIを追加するとき
+
+    1. `api/〇〇.ts`を作成する(`sample.ts`を参考)
+    
+    1. `redux/modules/（任意のモジュール）.ts`にredux-thunkを使った非同期関数を書く(`sampleModule.ts`下部を参考)
