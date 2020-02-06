@@ -92,6 +92,7 @@
         - `public/`内の`favicon.ico`,`logo192.png`,`logo512.png`
         - `public/index.html`のdescliptionとtitle
         - `package.json`のname,version,private
+        - `Readme.md`(このファイル)
 
     1. 独立したプロジェクトとして開発する
     
