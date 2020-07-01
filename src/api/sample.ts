@@ -1,33 +1,64 @@
-import axios from "./base";
+// -- setAxios function --
+import setAxios from "./base";
 
-export const sampleGet = (data1: string, data2: string) => {
-  const params = {
-    data1: data1,
-    data2: data2
-  };
-  return axios
-    .get("/sample", { params: params })
-    .then(res => res)
-    .catch(res => res);
-};
+// -- [POST] /sample --
 
-export const sampleJsonPost = (data1: string, data2: string) => {
+interface SamplePostType {
+  data1: string;
+  data2: string;
+  images: File[];
+}
+export const samplePostAPI = (inputData: SamplePostType) => {
   const formData = new FormData();
-  formData.append("data1", data1);
-  formData.append("data2", data2);
-  return axios
-    .post("/sample", formData)
+  formData.append("data1", inputData.data1);
+  formData.append("data2", inputData.data2);
+  inputData.images.forEach(image => {
+    formData.append("images", image);
+  });
+  return setAxios()
+    .post(`/sample`, formData)
     .then(res => res)
     .catch(res => res);
 };
 
-export const sampleFormPost = (data1: string, data2: string) => {
-  const jsonData = {
-    data1: data1,
-    data2: data2
+// -- [GET] /sample/:id --
+
+interface SampleIdGetType {
+  data1: string;
+  data2: string;
+}
+export const sampleIdGetAPI = (id: string, inputData: SampleIdGetType) => {
+  const queries = {
+    data1: inputData.data1,
+    data2: inputData.data2
   };
-  return axios
-    .post("/sample", jsonData)
+  return setAxios()
+    .get(`/sample/${id}`, { params: queries })
+    .then(res => res)
+    .catch(res => res);
+};
+
+// -- [PUT] /sample/:id --
+
+interface SampleIdPutType {
+  data1: string;
+  data2: string;
+}
+export const sampleIdPutAPI = (id: string, inputData: SampleIdPutType) => {
+  const formData = new FormData();
+  formData.append("data1", inputData.data1);
+  formData.append("data2", inputData.data2);
+  return setAxios()
+    .put(`/sample/${id}`, formData)
+    .then(res => res)
+    .catch(res => res);
+};
+
+// -- [DELETE] /sample/:id --
+
+export const sampleIdDeleteAPI = (id: string) => {
+  return setAxios()
+    .delete(`/sample/${id}`)
     .then(res => res)
     .catch(res => res);
 };

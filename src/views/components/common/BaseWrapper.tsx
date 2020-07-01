@@ -1,8 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { headerHeight } from "../../utils/size";
-import Header from "../molecules/Header";
+import Header from "./Header";
 
 const BaseWrapper: React.FC = ({ children }) => {
   return (
@@ -20,7 +19,7 @@ const Wrapper = styled.div`
 
 const Content = styled.div`
   width: 100%;
-  height: calc(100% - ${headerHeight});
+  height: calc(100% - 40px);
 `;
 
 export default BaseWrapper;

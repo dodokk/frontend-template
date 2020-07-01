@@ -1,13 +1,12 @@
 import React from "react";
-import * as H from "history";
 import styled from "styled-components";
 
 import { useDispatch, useSelector } from "react-redux";
-import { sampleSelector } from "../../redux/selectors/sampleSelector";
-import sampleModule from "../../redux/modules/sampleModule";
+import { sampleSelector } from "../../redux/slices/sampleSlice";
+import sampleModule from "../../redux/slices/sampleSlice";
 
-import SampleButton from "../atoms/SampleButton";
-import SampleInput from "../atoms/SampleInput";
+import SampleButton from "../components/Home/SampleButton";
+import SampleInput from "../components/Home/SampleInput";
 
 const Home: React.FC = props => {
   // dispatch, state を用意
